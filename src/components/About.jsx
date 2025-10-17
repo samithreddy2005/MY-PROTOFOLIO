@@ -61,7 +61,7 @@ const About = () => {
               <div className="info-item">
                 <FaMapMarkerAlt />
                 <div>
-                  <strong>Location</strong>
+                  <strong>Locations</strong>
                   <p>Hyderabad, India</p>
                 </div>
               </div>

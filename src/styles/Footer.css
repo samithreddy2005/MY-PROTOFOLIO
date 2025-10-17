@@ -1,0 +1,44 @@
+.footer {
+  background: var(--bg-darker);
+  padding: 30px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-content p {
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.footer-content span {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.footer-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.heart-icon {
+  color: #ef4444;
+  animation: heartbeat 1.5s infinite;
+}
+
+.coffee-icon {
+  color: #92400e;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}

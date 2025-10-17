@@ -7,25 +7,24 @@ const Skills = () => {
   const skillsRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
+    const node = skillsRef.current; // copy ref to local variable
+    if (!node) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
-      },
-      { threshold: 0.3 }
-    );
+      });
+    }, { threshold: 0.2 });
 
-    if (skillsRef.current) {
-      observer.observe(skillsRef.current);
-    }
+    observer.observe(node);
 
     return () => {
-      if (skillsRef.current) {
-        observer.unobserve(skillsRef.current);
-      }
+      observer.unobserve(node); // use local `node` (stable)
+      observer.disconnect();
     };
-  }, []);
+  }, []); // keep dependencies as needed
 
   const skillCategories = [
     {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter, FaBriefcase } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaBriefcase } from 'react-icons/fa';
 import { TypeAnimation } from 'react-type-animation';
 import '../styles/Hero.css';
 
@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="container">
         <div className="hero-content">
           <p className="greeting">Hello, I'm</p>
-          <h1 className="name">Your Name</h1>
+          <h1 className="name">K. Samith Reddy</h1>
           <h2 className="typing-text">
             <TypeAnimation
               sequence={[
@@ -44,17 +44,14 @@ const Hero = () => {
           </div>
 
           <div className="social-links">
-            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="social-icon">
+            <a href="https://github.com/samithreddy2005" target="_blank" rel="noreferrer" className="social-icon">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="social-icon">
+            <a href="https://www.linkedin.com/in/kesireddy-samith-reddy-86a3552a5" target="_blank" rel="noreferrer" className="social-icon">
               <FaLinkedin />
             </a>
-            <a href="mailto:your.email@example.com" className="social-icon">
+            <a href="mailto:samithreddy950@gmail.com" className="social-icon">
               <FaEnvelope />
-            </a>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer" className="social-icon">
-              <FaTwitter />
             </a>
           </div>
         </div>

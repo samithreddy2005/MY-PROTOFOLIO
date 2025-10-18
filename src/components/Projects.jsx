@@ -113,7 +113,7 @@ const Projects = () => {
         </div>
 
         <div className="view-more">
-          <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="btn btn-outline">
+          <a href="https://github.com/samithreddy2005" target="_blank" rel="noreferrer" className="btn btn-outline">
             <FaGithub /> View More on GitHub
           </a>
         </div>

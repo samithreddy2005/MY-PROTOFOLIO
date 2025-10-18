@@ -14,7 +14,7 @@ const About = () => {
         <div className="about-content">
           <div className="about-image">
             <div className="image-wrapper">
-              <img src="https://via.placeholder.com/400" alt="Profile" />
+              <img src="/images/profile.jpg" alt="Profile" />
               <div className="image-overlay"></div>
             </div>
           </div>

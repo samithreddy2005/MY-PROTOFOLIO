@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="container">
         <div className="nav-content">
           <div className="logo">
-            <h2>&lt;<span>KESIREDDY SAMITH REDDY'S PORTFOLIO</span> &gt;</h2>
+            <h2>&lt;<span>MY PORTFOLIO</span> &gt;</h2>
           </div>
 
           <ul className={`nav-links ${isOpen ? 'active' : ''}`}>

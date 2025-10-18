@@ -21,32 +21,23 @@ const About = () => {
 
           <div className="about-text">
             <h3>
-              Hi, I'm <span className="highlight">KESIREDDY SAMITH REDDY</span>
+              Hi, I'm <span className="highlight">Kesireddy Samith Reddy</span>
             </h3>
-            <p>
-              I'm an AI & Data Science student at <strong>KLH University</strong>, passionate
-              about leveraging technology to solve real-world problems. With expertise in Machine
-              Learning, Computer Vision, and Web Development, I enjoy building innovative projects
-              that make a difference.
-            </p>
-            <p>
-              My journey in tech has been driven by curiosity and a love for learning. From gesture
-              recognition systems to competitive programming, I'm constantly exploring new
-              technologies and pushing my boundaries.
-            </p>
+            <p>I am an AI & Data Science student at <strong>KLH University Aziznagar</strong>, driven by a passion for leveraging cutting-edge technology to address real-world challenges. Specializing in Machine Learning, Computer Vision, and Web Development, I thrive on building innovative and impactful projects that create meaningful solutions. My academic experience combined with hands-on expertise enables me to develop intelligent systems, analyze complex data, and deliver user-centric digital experiences.</p>
+            <p>I am continually exploring emerging tools and methodologies to enhance my skills and contribute to advancements in AI and data-driven technologies. Through collaborative research and practical application, I aim to push the boundaries of what technology can achieve for society.</p>
 
             <div className="about-stats">
               <div className="stat-item">
-                <h4>10+</h4>
+                <h4>3+</h4>
                 <p>Projects Completed</p>
               </div>
               <div className="stat-item">
                 <h4>500+</h4>
-                <p>Problems Solved</p>
+                <p>Problems Solved Overall</p>
               </div>
               <div className="stat-item">
                 <h4>3+</h4>
-                <p>Years Experience</p>
+                <p>Years Experience in KLH University</p>
               </div>
             </div>
 

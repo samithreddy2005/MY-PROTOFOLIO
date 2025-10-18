@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaTwitter, FaPaperPlane, FaUser, FaTag, FaCommentDots } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaPaperPlane, FaUser, FaTag, FaCommentDots } from 'react-icons/fa';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -78,7 +78,7 @@ const Contact = () => {
                 </div>
                 <div className="contact-text">
                   <h4>Email</h4>
-                  <a href="mailto:your.email@example.com">your.email@example.com</a>
+                  <a href="mailto:your.email@example.com">samithreddy950@gmail.com</a>
                 </div>
               </div>
 
@@ -88,8 +88,8 @@ const Contact = () => {
                 </div>
                 <div className="contact-text">
                   <h4>GitHub</h4>
-                  <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">
-                    github.com/yourusername
+                  <a href="https://github.com/samithreddy2005" target="_blank" rel="noreferrer">
+                    https://github.com/samithreddy2005
                   </a>
                 </div>
               </div>
@@ -100,8 +100,8 @@ const Contact = () => {
                 </div>
                 <div className="contact-text">
                   <h4>LinkedIn</h4>
-                  <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">
-                    linkedin.com/in/yourusername
+                  <a href="https://www.linkedin.com/in/kesireddy-samith-reddy-86a3552a5" target="_blank" rel="noreferrer">
+                    https://www.linkedin.com/in/kesireddy-samith-reddy-86a3552a5/
                   </a>
                 </div>
               </div>
@@ -112,23 +112,20 @@ const Contact = () => {
                 </div>
                 <div className="contact-text">
                   <h4>Location</h4>
-                  <p>Hyderabad, India</p>
+                  <p>Rajendranagar, Budwel, Hyderabad.</p>
                 </div>
               </div>
             </div>
 
             <div className="social-links-contact">
-              <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">
+              <a href="https://github.com/samithreddy2005" target="_blank" rel="noreferrer">
                 <FaGithub />
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/kesireddy-samith-reddy-86a3552a5/" target="_blank" rel="noreferrer">
                 <FaLinkedin />
               </a>
-              <a href="mailto:your.email@example.com">
+              <a href="mailto:samithreddy950@gmail.com">
                 <FaEnvelope />
-              </a>
-              <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer">
-                <FaTwitter />
               </a>
             </div>
           </div>

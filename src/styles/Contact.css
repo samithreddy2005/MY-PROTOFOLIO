@@ -1,0 +1,719 @@
+/**
+ * Professional Stylesheet (Portfolio/Blog Variant)
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ * 1. CSS VARIABLES (THEME)
+ * 2. GLOBAL RESET & BASE STYLES
+ * 3. LAYOUT (ROOT & SECTION)
+ * 4. COMPONENT: BUTTONS
+ * 5. COMPONENT: NAVIGATION (Centered)
+ * 6. COMPONENT: NAVBAR (Alternate)
+ * 7. COMPONENT: LOGO (VITE/REACT)
+ * 8. COMPONENT: FOOTER
+ * 9. COMPONENT: ABOUT SECTION
+ * 10. COMPONENT: CONTACT SECTION
+ * 11. TYPOGRAPHY
+ * 12. ANIMATIONS
+ * 13. MEDIA QUERIES
+ */
+
+
+/* * 1. CSS VARIABLES (THEME)
+ *
+ * Extracted from the provided styles for easy management.
+ */
+:root {
+  /* Main Theme */
+  --bg-dark: #090e18;
+  --bg-darker: #020617; /* Added for footer/contact */
+  --bg-nav: #1f2636;
+  --card-bg: #1e293b; /* Added for about stats/info/contact */
+  --content-bg-rgb: 33, 37, 56; /* Used for rgba(33, 37, 56, 0.85) */
+  --border-color: #334155; /* Added for footer/about/contact */
+  
+  --text-main: #e0def4;
+  --text-light: #ffffff;
+  --text-accent: #8be9fd;
+  --text-subtle: #888;
+  --text-color: var(--text-light); /* Alias from contact/about */
+  --text-dark: var(--text-subtle);  /* Alias from contact/about */
+
+
+  /* Alternate Nav Theme */
+  --bg-nav-alt: #161e34;
+  --brand-color: #3f7ff8;
+  --primary-color: var(--brand-color); /* Alias for consistency */
+  --link-hover-alt: #59aaf8;
+
+  /* Gradient Colors */
+  --primary-color-rgb: 59, 130, 246; /* for about overlay */
+  --secondary-color-rgb: 30, 64, 175; /* for about overlay */
+
+  /* Status & Icon Colors */
+  --error-color: #ef4444; /* Added for heart icon */
+  --coffee-color: #92400e; /* Added for coffee icon */
+
+  /* Effects */
+  --vite-glow: #646cffaa;
+  --react-glow: #61dafbaa;
+
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 36px rgba(0, 0, 0, 0.13);
+  --shadow-navbar: 0 2px 8px rgba(0, 0, 0, 0.4); /* from #00000066 */
+
+  /* Sizing & Fonts */
+  --font-system: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-alt: 'Poppins', sans-serif; /* Added for form */
+  
+  /* Transitions */
+  --transition-fast: color 0.2s ease;
+  --transition-links: border-bottom 0.2s ease, color 0.2s ease;
+  --transition-filter: filter 300ms ease;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Added for about/contact */
+}
+
+
+/* * 2. GLOBAL RESET & BASE STYLES
+ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-system);
+  background-color: var(--bg-dark);
+  color: var(--text-main); /* Using the softer text color as default */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* * 3. LAYOUT (ROOT & SECTION)
+ */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+section {
+  padding: 48px 24px;
+  max-width: 700px;
+  margin: 36px auto;
+  background: rgba(var(--content-bg-rgb), 0.85);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  text-align: left; /* Override parent's text-align: center */
+}
+
+/* * 4. COMPONENT: BUTTONS
+ */
+.btn-submit {
+  /* Base styles */
+  padding: 14px 35px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+ 
+  /* Primary styles from btn-primary */
+  background: var(--primary-color);
+  color: white;
+
+  /* Submit-specific styles */
+  width: 100%;
+  justify-content: center;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-family: var(--font-alt);
+}
+
+.btn-submit:hover {
+  background: var(--link-hover-alt); /* Using a slightly different hover */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(var(--primary-color-rgb), 0.4);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* * 5. COMPONENT: NAVIGATION (Centered)
+ */
+nav {
+  background: var(--bg-nav);
+  padding: 18px 36px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  
+  /* Added to help center the nav links within the layout */
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: var(--transition-fast);
+}
+
+nav ul li a:hover {
+  color: var(--text-accent);
+}
+
+/* Accessibility: Added focus state */
+nav ul li a:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 4px;
+  color: var(--text-accent);
+  border-radius: 2px;
+}
+
+
+/* * 6. COMPONENT: NAVBAR (Alternate)
+ *
+ * A full-width navigation bar component with brand and links.
+ */
+.navbar {
+  background: var(--bg-nav-alt);
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 6vw;
+  box-shadow: var(--shadow-navbar);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.25em;
+  color: var(--brand-color);
+  letter-spacing: 1.5px;
+  text-decoration: none;
+}
+.navbar-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar-links a {
+  font-weight: 700;
+  padding: 4px 0;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: var(--transition-links);
+  border-bottom: 2px solid transparent;
+}
+.navbar-links a.active,
+.navbar-links a:hover {
+  color: var(--link-hover-alt);
+  border-bottom-color: var(--link-hover-alt);
+}
+
+/* Accessibility: Added focus states */
+.navbar-brand:focus-visible,
+.navbar-links a:focus-visible {
+   outline: 2px solid var(--link-hover-alt);
+   outline-offset: 4px;
+   border-radius: 2px;
+   color: var(--link-hover-alt);
+}
+
+
+/* * 7. COMPONENT: LOGO (VITE/REACT)
+ *
+ * Styles from the Vite starter, integrated with variables.
+ */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: var(--transition-filter);
+  cursor: pointer;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--vite-glow));
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--react-glow));
+}
+
+.read-the-docs {
+  color: var(--text-subtle);
+}
+
+
+/* * 8. COMPONENT: FOOTER
+ */
+.footer {
+  background: var(--bg-darker);
+  padding: 30px 6vw; /* Matched padding to navbar */
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-content p {
+  color: var(--text-subtle); /* Adapted to use existing variable */
+  margin-bottom: 10px;
+}
+
+.footer-content span {
+  color: var(--brand-color); /* Adapted to use existing variable */
+  font-weight: 600;
+}
+
+.footer-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.heart-icon {
+  color: var(--error-color);
+  animation: heartbeat 1.5s infinite;
+}
+
+.coffee-icon {
+  color: var(--coffee-color);
+}
+
+
+/* * 9. COMPONENT: ABOUT SECTION
+ */
+.about {
+  /* Override default section background */
+  background: var(--bg-dark); 
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.3), rgba(var(--secondary-color-rgb), 0.3));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.image-wrapper:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.about-text h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--text-light); /* Use light text for emphasis */
+}
+
+.about-text .highlight {
+  color: var(--primary-color);
+}
+
+.about-text p {
+  color: var(--text-subtle); /* Use subtle text for paragraphs */
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-item h4 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.stat-item p {
+  color: var(--text-subtle);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.about-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.info-item svg {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-top: 3px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.info-item strong {
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  color: var(--text-subtle);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-image {
+    max-width: 500px; /* Constrain image on smaller screens */
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* * 10. COMPONENT: CONTACT SECTION
+ */
+.contact {
+  background: var(--bg-darker);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+
+.contact-info h3 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.contact-info > p {
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.contact-item:hover .contact-icon {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.contact-text h4 {
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.contact-text a,
+.contact-text p {
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-text a:hover {
+  color: var(--primary-color);
+}
+
+.social-links-contact {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links-contact a {
+  width: 45px;
+  height: 45px;
+  background: var(--card-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.social-links-contact a:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+.contact-form-wrapper {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dark);
+  font-size: 1rem;
+  z-index: 1; /* Ensure icon is above input */
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  background: var(--bg-dark);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-family: var(--font-alt);
+  font-size: 1rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.form-group textarea {
+  padding: 15px 45px; /* Consistent padding */
+  resize: vertical;
+  min-height: 120px; /* Give textarea a good default height */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: var(--bg-darker);
+}
+
+/* Accessibility: Change icon color on focus */
+.form-group input:focus + .form-icon,
+.form-group textarea:focus + .form-icon {
+    color: var(--primary-color);
+}
+
+
+/* * 11. TYPOGRAPHY
+ */
+h1, h2, h3 {
+  color: var(--text-accent);
+  margin-bottom: 0.75em; /* Added spacing */
+}
+
+p, li {
+  line-height: 1.75;
+  font-size: 1.05em;
+  margin-bottom: 1.25em; /* Added spacing */
+}
+
+/* Ensure lists have correct padding */
+ul, ol {
+  padding-left: 1.5em;
+}
+
+
+/* * 12. ANIMATIONS
+ */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+
+/* * 13. MEDIA QUERIES
+ */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-image {
+    max-width: 500px; /* Constrain image on smaller screens */
+    margin: 0 auto;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+

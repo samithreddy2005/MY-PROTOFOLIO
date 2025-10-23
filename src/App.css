@@ -1,0 +1,186 @@
+/**
+ * Professional Stylesheet (Portfolio/Blog Variant)
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ * 1. CSS VARIABLES (THEME)
+ * 2. GLOBAL RESET & BASE STYLES
+ * 3. LAYOUT (ROOT & SECTION)
+ * 4. COMPONENT: NAVIGATION
+ * 5. COMPONENT: LOGO (VITE/REACT)
+ * 6. TYPOGRAPHY
+ * 7. ANIMATIONS
+ */
+
+
+/* * 1. CSS VARIABLES (THEME)
+ *
+ * Extracted from the provided styles for easy management.
+ */
+:root {
+  --bg-dark: #090e18;
+  --bg-nav: #1f2636;
+  --content-bg-rgb: 33, 37, 56; /* Used for rgba(33, 37, 56, 0.85) */
+  
+  --text-main: #e0def4;
+  --text-light: #ffffff;
+  --text-accent: #8be9fd;
+  --text-subtle: #888;
+
+  --vite-glow: #646cffaa;
+  --react-glow: #61dafbaa;
+
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 36px rgba(0, 0, 0, 0.13);
+
+  --font-system: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  
+  --transition-fast: color 0.2s ease;
+  --transition-filter: filter 300ms ease;
+}
+
+
+/* * 2. GLOBAL RESET & BASE STYLES
+ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-system);
+  background-color: var(--bg-dark);
+  color: var(--text-main); /* Using the softer text color as default */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* * 3. LAYOUT (ROOT & SECTION)
+ */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+section {
+  padding: 48px 24px;
+  max-width: 700px;
+  margin: 36px auto;
+  background: rgba(var(--content-bg-rgb), 0.85);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  text-align: left; /* Override parent's text-align: center */
+}
+
+
+/* * 4. COMPONENT: NAVIGATION
+ */
+nav {
+  background: var(--bg-nav);
+  padding: 18px 36px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  
+  /* Added to help center the nav links within the layout */
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: var(--transition-fast);
+}
+
+nav ul li a:hover {
+  color: var(--text-accent);
+}
+
+/* Accessibility: Added focus state */
+nav ul li a:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 4px;
+  color: var(--text-accent);
+  border-radius: 2px;
+}
+
+
+/* * 5. COMPONENT: LOGO (VITE/REACT)
+ *
+ * Styles from the Vite starter, integrated with variables.
+ */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: var(--transition-filter);
+  cursor: pointer;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--vite-glow));
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--react-glow));
+}
+
+.read-the-docs {
+  color: var(--text-subtle);
+}
+
+
+/* * 6. TYPOGRAPHY
+ */
+h1, h2, h3 {
+  color: var(--text-accent);
+  margin-bottom: 0.75em; /* Added spacing */
+}
+
+p, li {
+  line-height: 1.75;
+  font-size: 1.05em;
+  margin-bottom: 1.25em; /* Added spacing */
+}
+
+/* Ensure lists have correct padding */
+ul, ol {
+  padding-left: 1.5em;
+}
+
+
+/* * 7. ANIMATIONS
+ */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+

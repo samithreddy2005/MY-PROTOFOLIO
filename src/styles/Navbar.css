@@ -1,0 +1,78 @@
+/* --- VARIABLES --- */
+:root {
+  --bg-nav-alt: #161e34;
+  --text-light: #ffffff;
+  --brand-color: #3f7ff8;
+  --link-hover-alt: #59aaf8;
+  --shadow-navbar: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --transition-links: border-bottom 0.2s ease, color 0.2s ease;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  background: var(--bg-nav-alt);
+  color: var(--text-light);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: var(--shadow-navbar);
+  padding: 1rem 6vw;
+}
+
+/* Flexbox for left-right alignment */
+.navbar-content {
+  display: flex;
+  justify-content: space-between; /* Left logo, right links */
+  align-items: center;
+  width: 100%;
+}
+
+/* --- LOGO LEFT --- */
+.navbar-brand a {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--brand-color);
+  letter-spacing: 1.5px;
+  text-decoration: none;
+}
+
+.navbar-brand span {
+  color: var(--brand-color);
+}
+
+/* --- LINKS RIGHT --- */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition-links);
+}
+
+.navbar-links a.active,
+.navbar-links a:hover {
+  color: var(--link-hover-alt);
+  border-bottom-color: var(--link-hover-alt);
+}
+
+/* --- REMOVE HAMBURGER --- */
+.hamburger {
+  display: none !important;
+}
+
+/* --- RESPONSIVE (Keep same layout but smaller gaps) --- */
+@media (max-width: 768px) {
+  .navbar-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-// Make sure this path matches your project structure
-// import '../styles/professional-styles-variant.css'; 
-
+ 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-
-  const toggleMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +43,6 @@ const Navbar = () => {
         top: offsetPosition,
         behavior: 'smooth',
       });
-      setIsOpen(false);
     }
   };
 
@@ -59,13 +52,11 @@ const Navbar = () => {
         {/* This new .nav-content wrapper is needed for flexbox layout */}
         <div className="nav-content">
           <div className="logo">
-            {/* Wrapped in a link to scroll to top */}
-            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-              <h2>&lt;<span>MY PORTFOLIO</span> &gt;</h2>
-            </a>
+            {/* logo removed */}
           </div>
 
-          <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
+          {/* Always-visible links (removed collapse toggling) */}
+          <ul className="nav-links">
             <li>
               <a
                 href="#home"
@@ -128,9 +119,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          <div className="hamburger" onClick={toggleMenu}>
-            {isOpen ? <FaTimes /> : <FaBars />}
-          </div>
+          {/* Removed hamburger toggler */}
         </div>
       </div>
     </nav>

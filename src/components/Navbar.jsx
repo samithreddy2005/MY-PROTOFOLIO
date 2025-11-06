@@ -52,7 +52,17 @@ const Navbar = () => {
         {/* This new .nav-content wrapper is needed for flexbox layout */}
         <div className="nav-content">
           <div className="logo">
-            {/* logo removed */}
+            <a
+              href="#home"
+              className="logo-text"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('home');
+              }}
+              aria-label="Go to home"
+            >
+              {"<MY PROTOFOLIO>"}
+            </a>
           </div>
 
           {/* Always-visible links (removed collapse toggling) */}

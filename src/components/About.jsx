@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGraduationCap, FaMapMarkerAlt, FaCode, FaDownload } from 'react-icons/fa';
+import pic from '/profile.jpg';
 import '../styles/About.css';
 
 const About = () => {
@@ -14,7 +15,7 @@ const About = () => {
         <div className="about-content">
           <div className="about-image">
             <div className="image-wrapper">
-              <img src="/public/profile.jpg" alt="Profile image" />
+              <img src={pic} alt="Profile image" />
               <div className="image-overlay"></div>
             </div>
           </div>
